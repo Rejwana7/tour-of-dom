@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of DOM</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, natus! Dolorem voluptate provident rem eligendi eaque, odit fugiat sed tenetur corporis vel, laudantium veniam accusantium sunt adipisci blanditiis dolore vitae?</p>
+    </header>
+    <style>
+        .fruits-container li {
+            color: tomato;
+        }
+        #fruits-title{
+            color:black;
+        }
+        .important-places{
+            color:blueviolet;
+            
+        }
+    </style>
+
+    <main id="main-container">
+        <section>
+            <h1>My Awesome DOM de baba</h1>
+            <ul>
+                <li>Jalali Set</li>
+                <li>Shafayet</li>
+                <li>bonobash</li>
+                <li>DOM de re baba</li>
+            </ul>
+        </section>
+
+        <section class="fruits-container">
+            <h1 id="fruits-title" class="some-class random-class blue-bg">Fruits I like</h1>
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Carrot</li>
+            </ul>
+        
+      
+    </section>
+
+<section class="fruits-container" id="fruits-container2">
+    <h1 id="fruits-title-2">More Fruits I like</h1>
+    <ul>
+        <li>Mango</li>
+        <li>Orange</li>
+        <li>Grapes</li>
+    </ul>
+</section>
+        <section id="places-container" class="large-text">
+            <h1 id="places-title">Places I like to visit</h1>
+            <ul id="places-list">
+                <li class="important-places">Soondarban</li>
+                <li class="important-places">bandorban</li>
+                <li class="important-places">Kataban</li>
+                <li class=" important-places other-place">shalbon</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="js/dom.js"></script>
+    <script src="js/styleInJs.js"></script>
+    <script src="js/append.js"></script>
+
+    <script>
+        const liCollection = document.getElementsByTagName('li');
+        // console.log(liCollection);
+        for(const li of liCollection){
+            //  console.log(li.innerText);
+        }
+        
+        // option-1: getElementsByTagName
+     
+        const allHeadings= document.getElementsByTagName('h1');
+        // console.log(allHeadings)
+        for(const h1 of allHeadings){
+            // console.log(h1.innerText)
+            // console.log(h1)
+        }
+
+           // option-2: getElementById
+        const fruitsTitle=document.getElementById('fruits-title');
+        fruitsTitle.style.color="magenta";
+        fruitsTitle.innerText='Fruits Changed by Js'
+
+
+        // option-3: getElementsByClassName
+        const places = document.getElementsByClassName('important-places');
+         
+        for(const place of places){
+            place.style.color="aqua";
+             console.log(place.innerText)
+        }
+// The error occurs because getElementsByClassName returns an HTMLCollection, not a single element. 
+  // option-4: querySelector
+
+  const someLi=document.querySelectorAll('.fruits-container li');
+  console.log(someLi);
+  for(const li of someLi){
+        // console.log(li.innerText);
+        }
+
+        const fruitLists = document.querySelectorAll('.fruits-container ul');
+// console.log(fruitLists[1]); // Logs the second <ul> inside '.fruits-container'
+
+const headings = document.querySelectorAll('.fruits-container h1');
+console.log(headings[1]); // Logs the second <h1> inside '.fruits-container'
+
+    // const sections = document.getElementsByClassName('fruits-container')
+    // const section = sections[1]; // Access the first element in the collection
+    // const text=section.innerText;
+    // console.log(text)
+    const sections1 = document.getElementsByClassName('fruits-container'); // Returns all sections
+for (let i = 0; i < sections1.length; i++) {
+    const text = sections1[i].innerText; // Get the inner text of each section
+    // console.log(`section ${i+1}:`, text);
+}
+const sections3 = document.getElementById('fruits-container2')
+    // Access the first element in the collection
+    const text=sections3.innerText;
+    // console.log(text)
+
+    // Log text of the first '.fruits-container'
+// const section = document.querySelectorAll('.fruits-container');
+// const text = section.innerText;
+// console.log(text);
+
+
+// const othersections = document.querySelectorAll('.fruits-container');
+// othersections.forEach((section, index) => {
+//     // console.log(`Section ${index + 1}:`, section.innerText);
+// });
+
+
+    </script>
+</body>
+</html>
